@@ -1,4 +1,3 @@
-zpzg333@k8s-master:~$ kubectl get svc -n metallb-system webhook-service  -o yaml
 apiVersion: v1
 kind: Service
 metadata:
