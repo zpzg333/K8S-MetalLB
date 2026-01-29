@@ -11,8 +11,6 @@ metadata:
     component: controller
   name: controller
   namespace: metallb-system
-  resourceVersion: "18331787"
-  uid: ec4ef632-12cc-4572-9e32-78dbb8eca8ec
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -31,7 +29,6 @@ spec:
       annotations:
         prometheus.io/port: "7472"
         prometheus.io/scrape: "true"
-      creationTimestamp: null
       labels:
         app: metallb
         component: controller
