@@ -13,7 +13,6 @@ items:
       component: speaker
     name: speaker
     namespace: metallb-system
-    resourceVersion: "18331796"
     uid: d7859931-2ecb-4c3b-8bc5-a9847e1208f9
   spec:
     revisionHistoryLimit: 10
