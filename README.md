@@ -66,6 +66,29 @@ MetalLB로 할당된 외부 IP는 아래 프로젝트에서 활용됩니다:
 - [my-k8s-dns](../my-k8s-dns) — CoreDNS Service에 External IP 할당
 - [Ansible](../Ansible) — Ansible 웹 서버 외부 노출
 
+## ArgoCD 연동
+
+이 프로젝트는 **ArgoCD(GitOps)** 와 연동되어 있습니다.  
+IP 풀 범위 변경, Speaker 설정 수정 등 MetalLB 구성 변경 시  
+GitHub에 push하면 ArgoCD가 자동으로 감지하여 클러스터에 반영합니다.
+
+```
+GitHub push (metallb-ippool.yaml 등 수정)
+        ↓
+ArgoCD 자동 감지 (auto-sync)
+        ↓
+MetalLB 설정 자동 반영
+        ↓
+서비스에 새 External IP 즉시 할당
+```
+
+| 항목 | 내용 |
+|---|---|
+| GitOps 도구 | ArgoCD |
+| 배포 트리거 | GitHub push |
+| 대상 | metallb-deploy.yaml, metallb-ippool.yaml, metallb-l2-adv.yaml |
+| ArgoCD 서비스 | www.syargocd.com |
+
 ## 배경
 
 베어메탈 홈랩 환경에서 LoadBalancer 기능을 구현하여,  
